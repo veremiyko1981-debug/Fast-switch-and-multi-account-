@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "dev.venice.multiacct",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "MultiAccountClient$MainMixin",
+    "MultiAccountClient$KeyboardMixin",
+    "MultiAccountClient$MinecraftClientMixin"
+  ],
+  "injectors": { "defaultRequire": 1 }
+}
