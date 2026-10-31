@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "id": "multiacct",
+  "version": "${version}",
+  "name": "Multi Account",
+  "environment": "client",
+  "entrypoints": { "client": ["dev.venice.multiacct.MultiAccountClient"] },
+  "mixins": [{ "config": "multiacct.mixins.json", "environment": "client" }],
+  "depends": { "fabricloader": ">=0.16.0", "minecraft": "*" }
+}
