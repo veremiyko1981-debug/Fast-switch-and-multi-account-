@@ -1,5 +1,9 @@
 name: build
 on: [push, workflow_dispatch]
+
+permissions:
+  contents: read
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -10,8 +14,13 @@ jobs:
           distribution: temurin
           java-version: '21'
       - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.14'
       - run: gradle build --no-daemon
       - uses: actions/upload-artifact@v4
         with:
           name: multiaccount-jar
-          path: build/libs/*.jar
+          path: |
+            build/libs/*.jar
+            !build/libs/*-sources.jar
+          if-no-files-found: error
