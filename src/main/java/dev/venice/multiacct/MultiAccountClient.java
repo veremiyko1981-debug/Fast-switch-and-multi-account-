@@ -311,7 +311,7 @@ public class MultiAccountClient implements ClientModInitializer {
 
         static int next  = GLFW.GLFW_KEY_F9;
         static int gui   = GLFW.GLFW_KEY_F10;
-        static int cycle = GLFW.GLFW_KEY_F11;
+        static int cycle = GLFW.GLFW_KEY_F8;
 
         static void load() {
             try {
