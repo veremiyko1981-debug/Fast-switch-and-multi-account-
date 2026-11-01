@@ -4,26 +4,25 @@ buildscript {
         mavenCentral()
         gradlePluginPortal()
     }
-    dependencies { classpath 'net.fabricmc:fabric-loom:1.14-SNAPSHOT' }
+    dependencies { classpath "net.fabricmc:fabric-loom:${project.loom_version}" }
 }
 
 apply plugin: 'fabric-loom'
 apply plugin: 'maven-publish'
 
-def mcVersion     = '26.2'
-def loaderVersion = '0.17.0'
+version = project.mod_version
+group = project.maven_group
+base { archivesName = project.archives_base_name }
 
-version = '1.0.0'
-group = 'dev.venice'
-base { archivesName = 'multiaccount' }
+repositories { mavenCentral() }
 
 dependencies {
-    minecraft "com.mojang:minecraft:${mcVersion}"
-    mappings loom.officialMojangMappings()
-    modImplementation "net.fabricmc:fabric-loader:${loaderVersion}"
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
+    modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
-    compileOnly "net.java.dev.jna:jna-platform:5.14.0"
-    // include "net.java.dev.jna:jna-platform:5.14.0"
+    implementation include("net.java.dev.jna:jna:${project.jna_version}")
+    implementation include("net.java.dev.jna:jna-platform:${project.jna_version}")
 }
 
 processResources {
