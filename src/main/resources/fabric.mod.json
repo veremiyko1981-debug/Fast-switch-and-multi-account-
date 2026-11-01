@@ -3,8 +3,16 @@
   "id": "multiacct",
   "version": "${version}",
   "name": "Multi Account",
+  "description": "Быстрое переключение между оффлайн-аккаунтами и запуск нескольких копий игры.",
+  "authors": ["venice"],
+  "license": "MIT",
+  "icon": "assets/multiacct/icon.png",
   "environment": "client",
   "entrypoints": { "client": ["dev.venice.multiacct.MultiAccountClient"] },
   "mixins": [{ "config": "multiacct.mixins.json", "environment": "client" }],
-  "depends": { "fabricloader": ">=0.16.0", "minecraft": "*" }
+  "depends": {
+    "fabricloader": ">=0.16.0",
+    "minecraft": "~26.2",
+    "java": ">=21"
+  }
 }
